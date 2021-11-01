@@ -8,4 +8,4 @@ a dummy expected time. Built with React, Context, JavaScript, and CSS.
 This project is currently still in development, User can add items to cart, checkout, and order. Functionality to display the receipt is in progress.
 
 ## Project Screen Shots
-![Picture of application featuring food](/github-screenshot-1.jpg?raw=true "Simply Fresh")
+![Picture of application featuring food](https://github.com/CharliePine22/react-simply-fresh/blob/main/github-screenshot-1.png?raw=true "Simply Fresh")
