@@ -1,5 +1,5 @@
 ## Project Name
-Simply Fresh
+#### Simply Fresh
 
 An application that allows the user to add meals to their cart, add their name and address and returns a receipt of the items along with
 a dummy expected time. Built with React, Context, JavaScript, and CSS.
