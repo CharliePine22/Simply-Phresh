@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+.receipt-container {
+    font-size: .85rem;
+    display:flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    width: 80%;
+}
+
+.receipt-container p {
+    position: absolute;
+    top: 15px;
+    left: 10px;
+    text-align:center;
+    color: #49c8007d;
+    font-size: .75rem;
+    margin-top: 0;
+}
+
+.details {
+    font-size: .78rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    line-height: .24rem;
+    margin-bottom: 20px;
+    color: #023a02;
+}
+
+.logo {
+    font-size: 3rem;
+    text-align: center;
+    color: #42ad04;
+    font-family: 'Dancing Script', cursive;
+    margin-bottom: 20px;
+    margin-top: 30px;
+    border-bottom: 2px solid #42ad04;
+    padding-bottom: 10px;
+}
+
+.item {
+    color: green;
+    border-bottom: 1px solid rgb(209, 208, 208);
+    width:24mm;
+}
+
+.item-header {
+    text-align: left;
+    padding-left: 20px;
+}
+
+.item-price {
+    text-align: right;
+}
+
+td {
+    padding: 20px;
+    width: 100%;
+}
+
+.table-headers {
+    background-color: #42ad04;
+    color:white;
+}
+
+th h3 {
+    font-size: .75rem;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+tfoot td {
+    text-align: center;
+    padding: 10px;
+}
+
+#totalAmount {
+    text-align:center;
+}
+
+
+.date {
+    color: #42ad04;
+}

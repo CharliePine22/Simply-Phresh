@@ -60,7 +60,7 @@ const Checkout = (props) => {
         name: nameInputValue,
         street: streetInputValue,
         zipCode: zipCodeInputValue,
-        street: streetInputValue
+        city: cityInputValue
     }
     props.onSubmit(userData)
 
