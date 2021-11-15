@@ -59,3 +59,20 @@
       transform: scale(1);
     }
   }
+
+  @media (min-width: 320px) and (max-width: 425px) {
+    .button {
+      padding: 0.5rem 1.5rem;
+    }
+    .badge {
+      padding: .5rem 1rem;
+    }
+    .icon {
+      width: 2rem;
+      height: 2rem;
+      margin-top: 0.5rem;
+    }
+    span {
+      font-size:.8rem;
+    }
+  }

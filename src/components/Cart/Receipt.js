@@ -35,7 +35,7 @@ const Receipt = (props) => {
     <>
       <div className={styles['receipt-container']}>
         <h1 className={styles.logo}>Simply Phresh</h1>
-        <div className={styles.details}>
+        <div id='details' className={styles.details}>
           <p className={styles.date}>
             {fullDate} {currTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
           </p>
@@ -60,10 +60,10 @@ const Receipt = (props) => {
           <tbody>{newItems}</tbody>
           <tfoot>
             <tr className={styles['table-headers']}>
-              <td className={styles['item-header']}>Total</td>
-              <td>{totalQuantity}</td>
+              <td className={styles['item-header']}><h3>Total</h3></td>
+              <td><h3>{totalQuantity}</h3></td>
               <td id={styles.totalAmount} colspan="2">
-                {props.total}
+                <h3>{props.total}</h3>
               </td>
             </tr>
           </tfoot>

@@ -74,17 +74,17 @@ const Cart = (props) => {
   // When you open your cart this modal content appears
   const cartModalContent =  <React.Fragment>
   {cartItems}
-  <div className={styles['cart-items']}>
-    <div className={styles.total}>
+  <div className={styles.total}>
       <span>Total Amount</span>
       <span>{totalAmount}</span>
     </div>
+  <div className={styles['cart-items']}>
     {!hasItems && <p>The cart is currently empty.</p>}
     <div className={styles.actions}>
-      <button className={styles['button--alt']} onClick={props.onCloseCart}>
+     {!checkoutReady && <button className={styles['button--alt']} onClick={props.onCloseCart}>
         Close
-      </button>
-      {hasItems && (
+      </button>}
+      {(hasItems && !checkoutReady) && (
         <button onClick={checkoutHandler} className={styles.button}>
           Order
         </button>

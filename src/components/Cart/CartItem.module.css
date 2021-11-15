@@ -64,3 +64,26 @@
   border: 1px solid #004d04;
   color: white;
 }
+
+@media (min-width: 320px) and (max-width: 425px) {
+  .amount {
+    font-size: .6rem;
+  }
+
+  .cart-item h2 {
+    font-size: .8rem;
+  }
+
+  .cart-item button {
+    font-size: .75rem;
+  }
+
+  li:first-of-type {
+    margin-top: 0px;
+    padding-top: 5px;
+  }
+
+  .price {
+    font-size: .7rem;
+  }
+}

@@ -1,9 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
+.details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: .78rem;
+    line-height: .24rem;
+    margin-bottom: 20px;
+    color: #016301;
+}
+
+.details h3 {
+    flex: 1;
+    line-height: .8rem
+}
+
+.details h3:nth-of-type(2) {
+    line-height: 2;
+}
+
 .receipt-container {
     font-size: .85rem;
-    display:flex;
-    flex-direction:column;
+    display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     margin-bottom: 20px;
     width: 80%;
@@ -13,20 +33,10 @@
     position: absolute;
     top: 15px;
     left: 10px;
-    text-align:center;
-    color: #49c8007d;
+    text-align: center;
+    color: #42ad04;
     font-size: .75rem;
     margin-top: 0;
-}
-
-.details {
-    font-size: .78rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    line-height: .24rem;
-    margin-bottom: 20px;
-    color: #023a02;
 }
 
 .logo {
@@ -43,7 +53,7 @@
 .item {
     color: green;
     border-bottom: 1px solid rgb(209, 208, 208);
-    width:24mm;
+    width: 24mm;
 }
 
 .item-header {
@@ -61,28 +71,89 @@ td {
 }
 
 .table-headers {
-    background-color: #42ad04;
-    color:white;
-}
-
-th h3 {
     font-size: .75rem;
+    background-color: #42ad04;
+    color: white;
 }
 
 .table {
     width: 100%;
     border-collapse: collapse;
 }
+
 tfoot td {
     text-align: center;
     padding: 10px;
 }
 
 #totalAmount {
-    text-align:center;
+    text-align: center;
 }
 
+@media (min-width: 375px) and (max-width: 425px) {
+    .details {
+        font-size: .7rem;
+        flex-direction: column;
+        width: 100%;
+    }
 
-.date {
-    color: #42ad04;
+    .details h3 {
+        margin: 8px;
+        line-height: 1.35rem;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    .receipt-container p {
+        font-size: .6rem;
+    }
+
+    .table {
+        font-size: .75rem;
+    }
+
+    .table h3 {
+        font-size: .75rem;
+        margin: 5px 0;
+    }
+
+    tfoot td {
+        padding: 1px 0;
+    }
+
+    tbody td:nth-of-type(2) {
+        text-align: center;
+        padding: 15px 5px;
+    }
+
+}
+
+@media (min-width:425px) and (max-width: 768px) {
+    .details {
+        font-size: .75rem;
+    }
+
+    .details h3 {
+        line-height: 1rem;
+    }
+
+    .receipt-container p {
+        font-size: .65rem;
+    }
+
+    .table {
+        font-size: .85rem;
+    }
+
+    .table th>h3 {
+        font-size: .75rem;
+        margin: 10px 0;
+    }
+
+    tfoot h3 {
+        margin: 0;
+    }
+
 }

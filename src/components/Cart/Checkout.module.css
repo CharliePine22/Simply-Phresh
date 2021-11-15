@@ -1,6 +1,6 @@
 .form {
-    margin: 1rem 0;
-    height: 19rem;
+    margin: 1rem 0 0;
+    height: 20rem;
     overflow: auto;
   }
   
@@ -9,6 +9,7 @@
   }
   
   .control label {
+    color: #42ad04;
     font-weight: bold;
     margin-bottom: 0.25rem;
     display: block;
@@ -36,6 +37,7 @@
     border: none;
     border-radius: 25px;
     padding: 0.5rem 2rem; 
+    margin-top: 0.5rem;
   }
   
   .actions button:hover,
@@ -61,4 +63,20 @@
   .invalid input {
     border-color: #aa0b20;
     background-color: #ffeff1;
+  }
+
+  @media (min-width: 320px) and (max-width: 425px) {
+    .form {
+      height: 17rem;
+    }
+    .actions {
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+    }
+    .control label {
+      text-align: center;
+      align-items: center;
+      align-content: center;
+    }
   }

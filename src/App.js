@@ -6,7 +6,7 @@ import CartProvider from './store/CartProvider';
 
 function App() {
   const [openCart, setOpenCart] = useState(false);
-
+  const body = document.body
   const openCartHandler = () => {
     setOpenCart(true);
   };
@@ -14,6 +14,9 @@ function App() {
   const closeCartHandler = () => {
     setOpenCart(false);
   };
+
+  // Prevents body from scrolling when cart is open
+  openCart ? body.style.cssText = "overflow: hidden;" : body.style.cssText = "overflow: auto;"
 
   return (
     <CartProvider>

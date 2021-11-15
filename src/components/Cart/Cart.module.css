@@ -73,3 +73,11 @@
     font-size: 1.2rem;
     color: #015205;
   }
+
+  
+@media (min-width: 320px) and (max-width: 425px) {
+  .total {
+    font-size: 1.25rem;
+    color: #015205;
+  }
+}
