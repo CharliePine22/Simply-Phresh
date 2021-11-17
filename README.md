@@ -7,7 +7,7 @@ a dummy expected time. Built with React, Context, JavaScript, and CSS.
 ## Project Status
 Update: Added Receipt Component
 
-This project is currently still in development, User can add items to cart, checkout, order, and get a receipt. Functionality to login and save data is currently in development.
+This project is currently still in development, User can add items to cart, checkout, order, and get a receipt. Functionality to login and save data is currently in development as well as adjusting the mobile view.
 
 ## Project Screen Shots
 ![Picture of application featuring food](https://github.com/CharliePine22/react-simply-fresh/blob/main/github-screenshot-1.png?raw=true "Simply Fresh")
