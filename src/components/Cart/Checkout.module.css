@@ -1,82 +1,133 @@
 .form {
-    margin: 1rem 0 0;
-    height: 20rem;
-    overflow: auto;
-  }
-  
-  .control {
-    margin-bottom: 0.5rem;
-  }
-  
-  .control label {
-    color: #42ad04;
-    font-weight: bold;
-    margin-bottom: 0.25rem;
-    display: block;
-  }
-  
-  .control input {
-    font: inherit;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 20rem;
-    max-width: 100%;
-  }
-  
-  .actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-  }
-  
-  .actions button {
-    font: inherit;
-    color: #42ad04;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-    border-radius: 25px;
-    padding: 0.5rem 2rem; 
-    margin-top: 0.5rem;
-  }
-  
-  .actions button:hover,
-  .actions button:active {
-    background-color: #42ad04;
-  }
-  
-  .actions .submit {
-    border: 1px solid #42ad04;
-    background-color: #42ad04;
-    color: white;
-  }
-  
-  .actions .submit:hover,
-  .actions .submit:active {
-    background-color: #015205;
-  }
-  
-  .invalid label {
-    color: #ca3e51;
-  }
-  
-  .invalid input {
-    border-color: #aa0b20;
-    background-color: #ffeff1;
+  margin: 1rem 0 0;
+  height: 22rem;
+  overflow: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-direction: column;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+}
+
+.actions button {
+  font: inherit;
+  color: #42ad04;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  border-radius: 25px;
+  padding: 0.5rem 2rem;
+  margin-top: 0.5rem;
+}
+
+.actions button:hover,
+.actions button:active {
+  background-color: #42ad04;
+}
+
+.actions .submit {
+  border: 1px solid #42ad04;
+  background-color: #42ad04;
+  color: white;
+}
+
+.actions .submit:hover,
+.actions .submit:active {
+  background-color: #015205;
+}
+
+.apartment-error {
+  display:inline;
+  color:red;
+  font-size:5px;
+}
+
+.control {
+  margin-bottom: 0.5rem;
+}
+
+.control label {
+  text-align: left;
+  color: #42ad04;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  display: block;
+}
+
+.control input {
+  font: inherit;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 20rem;
+  max-width: 100%;
+}
+
+.full-address {
+  text-align: left;
+  display:flex;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+
+.full-address input {
+  width: 75px;
+}
+
+.full-address p {
+  color: red;
+  font-size: .8rem;
+  padding-top: 5px;
+  margin:0 10px;
+}
+
+.invalid label {
+  color: #ca3e51;
+}
+
+.invalid input {
+  border-color: #aa0b20;
+  background-color: #ffeff1;
+}
+
+.invalid p {
+  color:red;
+  text-align:left;
+  margin-top:5px;
+}
+
+input[type=checkbox] {
+  height: 20px;
+  width: 17px;
+}
+
+.notify {
+  text-align:left;
+  color: green;
+  font-size: .67rem;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+@media (min-width: 320px) and (max-width: 425px) {
+  .form {
+    height: 17rem;
   }
 
-  @media (min-width: 320px) and (max-width: 425px) {
-    .form {
-      height: 17rem;
-    }
-    .actions {
-      justify-content: center;
-      align-items: center;
-      align-content: center;
-    }
-    .control label {
-      text-align: center;
-      align-items: center;
-      align-content: center;
-    }
+  .actions {
+    justify-content: center;
+    align-items: center;
+    align-content: center;
   }
+
+  .control label {
+    text-align: center;
+    align-items: center;
+    align-content: center;
+  }
+}

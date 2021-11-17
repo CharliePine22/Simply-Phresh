@@ -1,20 +1,32 @@
 import styles from './Receipt.module.css';
 
 const Receipt = (props) => {
-  // Get date and time
+  // Set date and time formatting options
   let options = {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
     day: 'numeric',
   };
+
+  // Format date to include just hour and minutes
   const currTime = new Date();
   currTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})
+
+  // Add 30min to current time to act as dummy ready time
   const readyTime = new Date();
   readyTime.setTime(currTime.getTime() + 30 * 60 * 1000);
+
+  // Grab the full date and time
   const fullDate = new Date().toLocaleDateString('en-US', options);
 
+  // List of purchased items
   const finalItems = props.items;
+  
+  let apartment;
+  if(props.info.apartment) {
+      apartment = props.info.apartment
+  } 
 
   // Create an empty counter to total up item quantity
   let totalQuantity = 0;
@@ -41,9 +53,9 @@ const Receipt = (props) => {
           </p>
           <h3>Name: {props.info.name} </h3>
           <h3>
-            Address: {props.info.street}, {props.info.city} {props.info.zipCode}
+            Address: {props.info.street}, {props.info.city} {props.info.zipCode} {props.info.apartment && 'Unit #'+apartment}
           </h3>
-          <h3>Time Ready: {readyTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</h3>
+          <h3>Estimated Delivery Time: {readyTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</h3>
         </div>
         <table className={styles.table}>
           <tr class={styles['table-headers']}>

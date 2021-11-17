@@ -16,7 +16,7 @@ function App() {
   };
 
   // Prevents body from scrolling when cart is open
-  openCart ? body.style.cssText = "overflow: hidden;" : body.style.cssText = "overflow: auto;"
+  openCart ? body.style.cssText = "overflow: hidden; height:100%;" : body.style.cssText = "overflow: auto;"
 
   return (
     <CartProvider>
