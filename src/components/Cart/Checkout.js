@@ -72,17 +72,18 @@ const Checkout = (props) => {
     }
   };
 
-  // Handler to submit the data
+  // HGANDLER TO SUBMIT DATA
   const confirmHandler = (event) => {
     event.preventDefault();
     if (hasApartment && apartmentInputValue === '') {
-      setApartmentBlank(true)
+      setApartmentBlank(true);
       formIsValid = false;
     }
 
     if (!formIsValid) {
       return;
     }
+
     let userData;
     if (hasApartment) {
       userData = {
@@ -98,6 +99,7 @@ const Checkout = (props) => {
       userData = {
         name: nameInputValue,
         street: streetInputValue,
+        apartment: event.target.apartment.value,
         zipCode: zipCodeInputValue,
         city: cityInputValue,
       };
@@ -123,7 +125,10 @@ const Checkout = (props) => {
   const cityInputClasses = cityHasError
     ? `${classes.control} ${classes.invalid}`
     : classes.control;
-  const apartmentClasses = (apartmentBlank || apartmentHasError) ? `${classes['full-address']} ${classes.invalid}` : classes['full-address']
+  const apartmentClasses =
+    apartmentBlank || apartmentHasError
+      ? `${classes['full-address']} ${classes.invalid}`
+      : classes['full-address'];
 
   return (
     <form className={classes.form} onSubmit={confirmHandler}>
@@ -139,7 +144,7 @@ const Checkout = (props) => {
         {nameHasError && <p>Please dont leave the name field empty!</p>}
       </div>
       <div className={streetInputClasses}>
-        <label htmlFor="street">Street</label>
+        <label htmlFor="street">Street Address</label>
         <p className={classes.notify}>
           Check box if you need to add an apartment/unit number.
         </p>
@@ -154,6 +159,13 @@ const Checkout = (props) => {
         </span>
         <span>
           <input
+            className={classes['mobile-view-apartment']}
+            id="mobile-view-apartment"
+            type="text"
+            name='apartment'
+            placeholder="(Optional) Apartment/Unit number"
+          />
+          <input
             onChange={hasApartmentHandler}
             type="checkbox"
             id="has_apartment"
@@ -162,18 +174,20 @@ const Checkout = (props) => {
         {hasApartment && (
           <div className={apartmentClasses}>
             <span>
-            <input
-              id="apartment-number"
-              onChange={apartmentUpdateValue}
-              onBlur={apartmentSetBlur}
-              value={apartmentInputValue}
-              type="text"
-              placeholder="#203"
-            />
+              <input
+                id="apartment-number"
+                onChange={apartmentUpdateValue}
+                onBlur={apartmentSetBlur}
+                value={apartmentInputValue}
+                type="text"
+                placeholder="#203"
+              />
             </span>
-            {(apartmentBlank || apartmentHasError) && <span>
-              <p>Please enter an apartment/unit number!</p>
-            </span>}
+            {(apartmentBlank || apartmentHasError) && (
+              <span>
+                <p>Please enter an apartment/unit number!</p>
+              </span>
+            )}
           </div>
         )}
         {streetHasError && <p>Please dont leave the address field empty!</p>}

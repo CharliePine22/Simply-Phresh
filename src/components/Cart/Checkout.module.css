@@ -106,6 +106,10 @@ input[type=checkbox] {
   width: 17px;
 }
 
+.mobile-view-apartment {
+  display:none;
+}
+
 .notify {
   text-align:left;
   color: green;
@@ -116,10 +120,10 @@ input[type=checkbox] {
 
 @media (min-width: 320px) and (max-width: 425px) {
   .form {
-    height: 17rem;
-  }
-
-  .actions {
+    height: 100%;
+    margin:0;
+    padding-bottom: 20px;
+    display:flex;
     justify-content: center;
     align-items: center;
     align-content: center;
@@ -129,5 +133,22 @@ input[type=checkbox] {
     text-align: center;
     align-items: center;
     align-content: center;
+  }
+
+  .control input { 
+    width: 15rem;
+  }
+
+  input[type=checkbox],
+  .notify {
+    display:none;
+  }
+
+  .invalid p {
+    text-align:center;
+  }
+
+  .mobile-view-apartment {
+    display:block;
   }
 }

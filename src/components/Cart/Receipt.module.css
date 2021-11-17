@@ -167,16 +167,15 @@ tfoot td:nth-of-type(2) {
     }
 
     .table {
-        font-size: .85rem;
+        font-size: 1.05rem;
     }
 
     .table th>h3 {
-        font-size: .75rem;
         margin: 10px 0;
     }
 
     tfoot h3 {
-        margin: 0;
+        margin: 10px 0;
     }
 
 }
