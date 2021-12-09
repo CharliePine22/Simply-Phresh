@@ -60,7 +60,7 @@
     }
   }
 
-  @media (min-width: 320px) and (max-width: 425px) {
+  @media (min-width: 320px) and (max-width: 430px) {
     .button {
       padding: 0.5rem 1.5rem;
     }

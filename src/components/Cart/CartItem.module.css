@@ -65,7 +65,7 @@
   color: white;
 }
 
-@media (min-width: 320px) and (max-width: 425px) {
+@media (min-width: 320px) and (max-width: 430px) {
   .amount {
     font-size: .6rem;
   }

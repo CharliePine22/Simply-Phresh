@@ -1,12 +1,18 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import useInput from '../../hooks/use-input';
 import classes from './Checkout.module.css';
+import AuthContext from '../../store/auth-context';
+import useFetchData from '../../hooks/use-fetch-data';
 
 const entryValid = (value) => value !== '';
+const emailValid = (value) => value.includes('@');
 
 const Checkout = (props) => {
   const [hasApartment, setHasApartment] = useState(false);
   const [apartmentBlank, setApartmentBlank] = useState(false);
+  const [userData, setUserData] = useState({})
+  const authContext = useContext(AuthContext);
+  const {isLoading, currentUserData} = useFetchData();
 
   // NAME INPUT HOOK
   const {
@@ -17,6 +23,17 @@ const Checkout = (props) => {
     setBlur: nameSetBlur,
     resetFields: nameReset,
   } = useInput(entryValid);
+
+  //EMAIL INPUT HOOK
+  let {
+    value: emailInputValue,
+    hasError: emailHasError,
+    isValid: emailIsValid,
+    updateValue: emailUpdateValue,
+    setBlur: emailSetBlur,
+    resetFields: emailReset
+  } = useInput(emailValid)
+
 
   // STREET ADDRESS INPUT HOOK
   const {
@@ -59,7 +76,7 @@ const Checkout = (props) => {
   } = useInput(entryValid);
 
   let formIsValid = false;
-  if (nameIsValid && streetIsValid && zipCodeIsValid && cityIsValid) {
+  if (nameIsValid && emailIsValid && streetIsValid && zipCodeIsValid && cityIsValid) {
     formIsValid = true;
   }
 
@@ -80,40 +97,48 @@ const Checkout = (props) => {
       formIsValid = false;
     }
 
-    if (!formIsValid) {
+    if (!authContext.isLoggedIn && !formIsValid) {
       return;
     }
 
     let userData;
-    if (hasApartment) {
+    if (!authContext.isLoggedIn) {
       userData = {
         name: nameInputValue,
+        email: emailInputValue,
         street: streetInputValue,
         apartment: apartmentInputValue,
         zipCode: zipCodeInputValue,
         city: cityInputValue,
       };
-    }
-
-    if (!hasApartment) {
+    } else {
       userData = {
-        name: nameInputValue,
-        street: streetInputValue,
-        apartment: event.target.apartment.value,
-        zipCode: zipCodeInputValue,
-        city: cityInputValue,
-      };
+        name: currentUserData.userData.firstName + ' ' + currentUserData.userData.lastName,
+        email: currentUserData.email,
+        street: currentUserData.userData.street,
+        apartment: currentUserData.userData.apartment,
+        zipCode: currentUserData.userData.zipcode,
+        city: currentUserData.userData.city
+      }
     }
 
+    if(!authContext.isLoggedIn) {
     props.onSubmit(userData);
     nameReset();
+    emailReset()
     streetReset();
     apartmentReset();
     zipCodeReset();
     cityReset();
+    } else {
+      props.onSubmit(userData)
+    }
   };
 
   const nameInputClasses = nameHasError
+    ? `${classes.control} ${classes.invalid}`
+    : classes.control;
+  const emailInputClasses = (emailHasError && !authContext.isLoggedIn)
     ? `${classes.control} ${classes.invalid}`
     : classes.control;
   const streetInputClasses = streetHasError
@@ -135,7 +160,7 @@ const Checkout = (props) => {
       <div className={nameInputClasses}>
         <label htmlFor="name">Your Name</label>
         <input
-          value={nameInputValue}
+          value={(authContext.isLoggedIn && !isLoading) ? currentUserData.userData.firstName + ' ' +currentUserData.userData.lastName : nameInputValue}
           type="text"
           id="name"
           onChange={nameUpdateValue}
@@ -143,6 +168,18 @@ const Checkout = (props) => {
         />
         {nameHasError && <p>Please dont leave the name field empty!</p>}
       </div>
+      <div className={emailInputClasses}>
+        <label htmlFor="email">Email</label>
+        <input
+          value={(authContext.isLoggedIn && !isLoading) ? currentUserData.email : emailInputValue}
+          type="email"
+          id="email"
+          onChange={emailUpdateValue}
+          onBlur={emailSetBlur}
+        />
+        {(emailHasError && !authContext.isLoggedIn) && <p>Please dont leave the email field empty!</p>}
+      </div>
+  
       <div className={streetInputClasses}>
         <label htmlFor="street">Street Address</label>
         <p className={classes.notify}>
@@ -150,7 +187,7 @@ const Checkout = (props) => {
         </p>
         <span>
           <input
-            value={streetInputValue}
+            value={(authContext.isLoggedIn && !isLoading) ? currentUserData.userData.street : streetInputValue}
             type="text"
             id="street"
             onChange={streetUpdateValue}
@@ -178,7 +215,7 @@ const Checkout = (props) => {
                 id="apartment-number"
                 onChange={apartmentUpdateValue}
                 onBlur={apartmentSetBlur}
-                value={apartmentInputValue}
+                value={(authContext.isLoggedIn && !isLoading && currentUserData.userData.apartment) ? currentUserData.userData.apartment : apartmentInputValue}
                 type="text"
                 placeholder="#203"
               />
@@ -195,7 +232,7 @@ const Checkout = (props) => {
       <div className={zipCodeInputClasses}>
         <label htmlFor="postal">Postal Code</label>
         <input
-          value={zipCodeInputValue}
+          value={(authContext.isLoggedIn && !isLoading) ? currentUserData.userData.zipcode : zipCodeInputValue}
           type="text"
           id="postal"
           onChange={zipCodeUpdateValue}
@@ -206,7 +243,7 @@ const Checkout = (props) => {
       <div className={cityInputClasses}>
         <label htmlFor="city">City</label>
         <input
-          value={cityInputValue}
+          value={(authContext.isLoggedIn && !isLoading) ? currentUserData.userData.city : cityInputValue}
           type="text"
           id="city"
           onChange={cityUpdateValue}

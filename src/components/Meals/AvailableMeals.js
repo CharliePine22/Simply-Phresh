@@ -30,7 +30,6 @@ const AvailableMeals = () => {
           });
         }
         const mealsList = all_meals.map((meal) => (
-          <li>
             <MealsItem
               id={meal.id}
               key={meal.id}
@@ -38,7 +37,6 @@ const AvailableMeals = () => {
               description={meal.mealDescription}
               price={meal.mealPrice}
             />
-          </li>
         ));
         setMeals(mealsList);
       } catch (error) {

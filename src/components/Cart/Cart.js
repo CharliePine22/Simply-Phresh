@@ -5,6 +5,8 @@ import CartItem from './CartItem';
 import CartContext from '../../store/cart-context';
 import Checkout from './Checkout';
 import Receipt from './Receipt';
+import AuthContext from '../../store/auth-context';
+import useFetchData from '../../hooks/use-fetch-data';
 
 const Cart = (props) => {
   const [checkoutReady, setCheckoutReady] = useState(false);
@@ -12,9 +14,11 @@ const Cart = (props) => {
   const [didSubmit, setDidSubmit] = useState(false);
   const [userDetails, setUserDetails] = useState([])
   const [itemDetails, setItemDetails] = useState([])
+  const authContext = useContext(AuthContext)
   const ctx = useContext(CartContext);
   const totalAmount = `$${ctx.totalAmount.toFixed(2)}`;
   const hasItems = ctx.items.length > 0;
+  const {userData, firebaseKey, isLoading} = useFetchData()
 
 
   // Remove item from cart
@@ -34,15 +38,31 @@ const Cart = (props) => {
 
   // Submit checkout data
   const sendDataHandler = async (userData) => {
-    setUserDetails(userData)
+    setUserDetails(userData);
     setIsSubmitting(true);
-    await fetch('https://react-http-cee32-default-rtdb.firebaseio.com/orders.json', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
+    let body;
+    let url;
+    if(!authContext.isLoggedIn) {
+      url = 'https://react-http-cee32-default-rtdb.firebaseio.com/orders.json'
+      body = JSON.stringify({
         user: userData,
         orderedItems: ctx.items,
-      }),
+      })
+    } else {
+      url = `https://react-http-cee32-default-rtdb.firebaseio.com/users/${firebaseKey}/orders.json`
+      body = JSON.stringify({
+        order: ctx.items,
+        dateOrdered:  new Date().toLocaleDateString('en-US', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'})
+      })
+    }
+    await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body
     });
     setIsSubmitting(false);
     setDidSubmit(true)

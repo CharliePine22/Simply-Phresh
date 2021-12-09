@@ -1,44 +1,96 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+.auth {
+  margin-bottom: .25rem;
+}
+
+.login {
+  color: white;
+  border-style: none;
+  background-color: transparent;
+  font-size: .9rem;
+}
+
+.login:link {
+  text-decoration: none;
+}
+
+.login:hover {
+  cursor: pointer;
+  color: darkgreen;
+}
+
+.auth span {
+  cursor: cursor;
+  font-size: 1.15rem;
+  padding: 0 .3rem;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-evenly;
+  ;
+  align-items: center;
+}
+
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5rem;
-    background-color: #42ad04;
-    color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10%;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-    z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5rem;
+  background-color: #42ad04;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  z-index: 10;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin: .3rem 0 0 0;
+  font-family: 'Dancing Script', cursive;
+}
+
+.hidden-header {
+  background-color: white;
+  color: #42ad04;
+}
+
+.logo:link,
+.logo:visited {
+  text-decoration: none;
+  color: white;
+}
+
+.logo:hover {
+  color: darkgreen;
+}
+
+
+.main-image {
+  width: 100%;
+  height: 27rem;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.main-image img {
+  width: 110%;
+  height: 100%;
+  object-fit: cover;
+  transform: rotateZ(-5deg) translateY(-4rem) translateX(-1rem);
+}
+
+@media (min-width: 320px) and (max-width: 430px) {
+  .header {
+    padding: 0 2.5%;
   }
-  
+
   .header h1 {
-    font-size: 2.5rem;
-    font-family: 'Dancing Script', cursive;
+    font-size: 1.7rem;
   }
-
-  .main-image {
-    width: 100%;
-    height: 27rem;
-    z-index: 0;
-    overflow: hidden;
-  }
-  
-  .main-image img {
-    width: 110%;
-    height: 100%;
-    object-fit: cover;
-    transform: rotateZ(-5deg) translateY(-4rem) translateX(-1rem);
-  }
-
-  @media (min-width: 320px) and (max-width: 425px) {
-    .header {
-      padding: 0 2.5%;
-    }
-    .header h1 {
-      font-size: 1.7rem;
-    }
-  }
+}

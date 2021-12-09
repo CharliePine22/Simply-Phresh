@@ -16,9 +16,9 @@
     line-height: .8rem
 }
 
-.details h3:nth-of-type(2) {
+/* .details h3:nth-of-type(2) {
     line-height: 2;
-}
+} */
 
 .receipt-container {
     font-size: .85rem;
@@ -95,7 +95,7 @@ tfoot td:nth-of-type(2) {
 }
 
 /* Media Query for Iphones */
-@media (min-width: 320px) and (max-width: 425px) {
+@media (min-width: 320px) and (max-width: 430px) {
     .details {
         font-size: .7rem;
         flex-direction: column;

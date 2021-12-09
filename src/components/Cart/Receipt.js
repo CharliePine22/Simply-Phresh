@@ -52,6 +52,7 @@ const Receipt = (props) => {
             {fullDate} {currTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
           </p>
           <h3>Name: {props.info.name} </h3>
+          <h3>Email: {props.info.email} </h3>
           <h3>
             Address: {props.info.street}, {props.info.city} {props.info.zipCode} {props.info.apartment && 'Unit #'+apartment}
           </h3>

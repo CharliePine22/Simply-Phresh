@@ -118,7 +118,7 @@ input[type=checkbox] {
   margin-bottom: 0px;
 }
 
-@media (min-width: 320px) and (max-width: 425px) {
+@media (min-width: 320px) and (max-width: 430px) {
   .form {
     height: 100%;
     margin:0;
