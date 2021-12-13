@@ -3,6 +3,7 @@
 
 An application that allows the user to add meals to their cart, add their name and address and returns a receipt of the items along with
 a dummy expected time. Built with React, Context, HTML, JavaScript, and CSS.
+Website Link: https://www.simply-phresh.firebaseapp.com
 
 ## Project Status
 Update: Added past orders page
