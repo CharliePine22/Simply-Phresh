@@ -2,12 +2,12 @@
 #### Simply Phresh
 
 An application that allows the user to add meals to their cart, add their name and address and returns a receipt of the items along with
-a dummy expected time. Built with React, Context, JavaScript, and CSS.
+a dummy expected time. Built with React, Context, HTML, JavaScript, and CSS.
 
 ## Project Status
-Update: Added Receipt Component, User Profile, and made made UI adjustments.
+Update: Added past orders page
 
-This project is currently still in development, User can add items to cart, checkout, order, and get a receipt. Functionality retrieve previous or recent orders is currently in development as well as adjusting the mobile view.
+This project is currently still in development, User can add items to cart, checkout, order, and get a receipt. The user can also sign in and view past orders and profile details as well. Functionality to filter orders by a certain date and add previous orders to cart is currently in development.
 
 ## Project Screen Shots
 ![Picture of application featuring food](https://github.com/CharliePine22/react-simply-fresh/blob/main/github-screenshot-1.png?raw=true "Simply Fresh")
