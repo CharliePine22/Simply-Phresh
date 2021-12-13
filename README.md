@@ -1,9 +1,10 @@
 ## Project Name
 #### Simply Phresh
+Website Link: https://simply-phresh.web.app/
 
 An application that allows the user to add meals to their cart, add their name and address and returns a receipt of the items along with
 a dummy expected time. Built with React, Context, HTML, JavaScript, and CSS.
-Website Link: simply-phresh.web.app
+
 
 ## Project Status
 Update: Added past orders page
