@@ -18,7 +18,7 @@ const Cart = (props) => {
   const ctx = useContext(CartContext);
   const totalAmount = `$${ctx.totalAmount.toFixed(2)}`;
   const hasItems = ctx.items.length > 0;
-  const {userData, firebaseKey, isLoading} = useFetchData()
+  const { firebaseKey } = useFetchData()
 
 
   // Remove item from cart

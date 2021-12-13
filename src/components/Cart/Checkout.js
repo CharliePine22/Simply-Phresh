@@ -10,7 +10,6 @@ const emailValid = (value) => value.includes('@');
 const Checkout = (props) => {
   const [hasApartment, setHasApartment] = useState(false);
   const [apartmentBlank, setApartmentBlank] = useState(false);
-  const [userData, setUserData] = useState({})
   const authContext = useContext(AuthContext);
   const {isLoading, currentUserData} = useFetchData();
 
@@ -49,7 +48,6 @@ const Checkout = (props) => {
   const {
     value: apartmentInputValue,
     hasError: apartmentHasError,
-    isValid: apartmentIsValid,
     updateValue: apartmentUpdateValue,
     setBlur: apartmentSetBlur,
     resetFields: apartmentReset,
