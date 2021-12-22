@@ -1,0 +1,29 @@
+.container {
+    display:flex;
+    justify-content:flex-start;
+}
+
+.list-item {
+    list-style: none;
+    margin-top:0;
+}
+
+.list-item li {
+    font-size:.95rem;
+}
+
+.name {
+    display:flex;
+    flex-direction: column;
+}
+
+.name h4 {
+    font-size: 1rem;
+    margin-top:2px;
+    margin-bottom: 2px;
+}
+
+[class~='name']:last-of-type {
+    margin-bottom: 40px;
+    font-size: 4rem;
+}

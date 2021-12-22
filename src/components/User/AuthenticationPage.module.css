@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+.header {
+    display:flex;
+    justify-content:center;
+    margin-top: 2rem;
+}
+
+.page {
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: flex-start;
+    height:100vh;
+    margin-top:0;
+    overflow-y: scroll;
+    background-color: #42ad04;
+}
+
+.title {
+    font-size: 4rem;
+    margin: 1rem auto 2.5rem auto;
+    color: white;
+}
+
+@media (min-width: 375px) and (max-width: 430px) {
+    .title {
+        font-size: 2.5rem;
+        margin-top:0;
+        margin-bottom: 2rem;
+    }
+}
+
